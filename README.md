@@ -1,2 +1,8 @@
 # term-colors
-A Gren lang library for terminal colors using ANSI escape codes
+
+> A [Gren lang](https://gren-lang.org/) library for terminal colors using ANSI escape codes
+
+
+### License
+
+[MIT](/LICENSE)

@@ -3,7 +3,7 @@
     "platform": "common",
     "name": "revathskumar/term-colors",
     "summary": "Colors in terminal",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
     "version": "1.0.0",
     "exposed-modules": [],
     "gren-version": "0.3.0 <= v < 0.4.0",

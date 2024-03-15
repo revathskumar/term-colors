@@ -1,0 +1,153 @@
+module TermColors exposing (TermStyle, red, green, yellow, blue, underscore, reset)
+
+type TermStyle
+    = Black
+    | Red
+    | Green
+    | Yellow
+    | Blue
+    | Magenta
+    | Cyan
+    | White
+    | Gray -- Actions
+    | Reset
+    | Bright
+    | Dim
+    | Underscore
+    | Blink
+    | Reverse
+    | Hidden -- Background colors
+    | BgBlack
+    | BgRed
+    | BgGreen
+    | BgYellow
+    | BgBlue
+    | BgMagenta
+    | BgCyan
+    | BgWhite
+    | BgGray
+
+
+
+
+getColorCode : TermStyle -> String
+getColorCode clr =
+    case clr of
+        Black ->
+            "30"
+
+        Red ->
+            "31"
+
+        Green ->
+            "32"
+
+        Yellow ->
+            "33"
+
+        Blue ->
+            "34"
+
+        Magenta ->
+            "35"
+
+        Cyan ->
+            "36"
+
+        White ->
+            "37"
+
+        Gray ->
+            "98"
+
+        Bright ->
+            "1"
+
+        Reset ->
+            "0"
+
+        Dim ->
+            "2"
+
+        Underscore ->
+            "4"
+
+        Blink ->
+            "5"
+
+        Reverse ->
+            "7"
+
+        Hidden ->
+            "8"
+
+        BgBlack ->
+            "40"
+
+        BgRed ->
+            "41"
+
+        BgGreen ->
+            "42"
+
+        BgYellow ->
+            "43"
+
+        BgBlue ->
+            "44"
+
+        BgMagenta ->
+            "45"
+
+        BgCyan ->
+            "46"
+
+        BgWhite ->
+            "47"
+
+        BgGray ->
+            "100"
+
+
+colorText : TermStyle -> String -> String
+colorText clr str =
+    let
+        clrCode =
+            getColorCode clr
+    in
+    colorHex clrCode ++ str ++ reset
+
+
+red : String -> String
+red str =
+    colorText Red str
+
+
+green : String -> String
+green str =
+    colorText Green str
+
+
+yellow : String -> String
+yellow str =
+    colorText Yellow str
+
+
+blue : String -> String
+blue str =
+    colorText Blue str
+
+
+colorHex : String -> String
+colorHex clrCode =
+    "\u{001B}[" ++ clrCode ++ "m"
+
+
+reset : String
+reset =
+    colorHex "0"
+
+
+underscore : String -> String
+underscore str =
+    colorText Underscore str
